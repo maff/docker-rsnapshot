@@ -90,4 +90,4 @@ Using external configuration file...
 
 ## Credits
 
-Inspired by [`scandio/docker-rsnapshot`](https://bitbucket.org/scandio/docker-rsnapshot/).
+Inspired by [`scandio/docker-rsnapshot`](https://bitbucket.org/scandio/docker-rsnapshot/)
