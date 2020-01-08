@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM debian:buster-slim
 
 VOLUME /source
 VOLUME /target
