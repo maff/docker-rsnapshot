@@ -85,9 +85,22 @@ $ docker run -it --rm \
   -v /path/to/config:/config:ro \
   rsnapshot alpha
 
-Using external configuration file...
+INFO: Using external configuration file
 ```
 
-## Credits
+## Customizing UID/GID
 
-Inspired by [`scandio/docker-rsnapshot`](https://bitbucket.org/scandio/docker-rsnapshot/)
+By default, the container executes `rsnapshot` as `docker` user with UID/GID set to `9000`. If you want to customize the user's UID to match your permissions, you can pass `UID` and `GID` as environment variables:
+
+```shell
+$ docker run -it --rm \
+  -e UID=9500 \
+  -e GID=9500 \
+  -v /path/to/source:/source \
+  -v /path/to/target:/target \
+  -v /path/to/config:/config:ro \
+  rsnapshot alpha
+
+INFO: Changing 'docker' UID to '9500'
+INFO: Changing 'docker' GID to '9500'
+```

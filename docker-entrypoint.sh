@@ -2,11 +2,21 @@
 
 set -e
 
-if [ -f /config/rsnapshot.conf ]; then
-  echo "Using external configuration file..."
-  cp /config/rsnapshot.conf /etc/rsnapshot.conf
-else
-  echo "Using default configuration file..."
+if [ "$(id docker -u)" != "${UID}" ]; then
+  echo "INFO: Changing 'docker' UID to '${UID}'"
+  usermod -o -u ${UID} docker
 fi
 
-/usr/bin/rsnapshot "$@"
+if [ "$(id docker -g)" != "${GID}" ]; then
+  echo "INFO: Changing 'docker' GID to '${GID}'"
+  groupmod -o -g ${GID} docker
+fi
+
+if [ -f /config/rsnapshot.conf ]; then
+  echo "INFO: Using external configuration file"
+  cp /config/rsnapshot.conf /etc/rsnapshot.conf
+else
+  echo "INFO: Using default configuration file"
+fi
+
+gosu docker /usr/bin/rsnapshot "$@"
