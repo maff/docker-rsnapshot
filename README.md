@@ -35,7 +35,7 @@ You can run `rsnapshot` with the default settings like this:
 $ docker run -it --rm \
   -v /path/to/source:/source \
   -v /path/to/target:/target \
-  rsnapshot hourly
+  maff/rsnapshot hourly
 ```
 
 
@@ -83,7 +83,7 @@ $ docker run -it --rm \
   -v /path/to/source:/source \
   -v /path/to/target:/target \
   -v /path/to/config:/config:ro \
-  rsnapshot alpha
+  maff/rsnapshot alpha
 
 INFO: Using external configuration file
 ```
@@ -99,7 +99,7 @@ $ docker run -it --rm \
   -v /path/to/source:/source \
   -v /path/to/target:/target \
   -v /path/to/config:/config:ro \
-  rsnapshot alpha
+  maff/rsnapshot alpha
 
 INFO: Changing 'docker' UID to '9500'
 INFO: Changing 'docker' GID to '9500'
