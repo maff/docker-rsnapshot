@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -eu
 
 if [ "$(id docker -u)" != "${UID}" ]; then
   echo "INFO: Changing 'docker' UID to '${UID}'"
